@@ -39,8 +39,8 @@ $(document).ready(function() {
        $('#imgModal').attr('src', images[index]);
        $('#imgModal').attr('alt', names[index]);
        $('#imgModal').show();
-       $("#typeModal").append("Tipo: " + types[index]);
-       $('#descriptionModal').append("Descrição: " + descriptions[index]);
+       $("#typeModal").append("<b>Tipo: </b>" + types[index]);
+       $('#descriptionModal').append("<b>Descrição: </b>" + descriptions[index]);
      }
   });
    $('.close').click(function () {
