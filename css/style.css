@@ -1,0 +1,29 @@
+@font-face {
+  font-family: 'icones';
+  src:  url('fonts/icones.eot?gyts7g');
+  src:  url('fonts/icones.eot?gyts7g#iefix') format('embedded-opentype'),
+    url('fonts/icones.ttf?gyts7g') format('truetype'),
+    url('fonts/icones.woff?gyts7g') format('woff'),
+    url('fonts/icones.svg?gyts7g#icones') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icones' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-search:before {
+  content: "\eaba";
+}

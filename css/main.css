@@ -1,3 +1,6 @@
+body{
+  font-family: 'Modern Antiqua', cursive;
+}
 .logo{
   display: flex;
   flex-direction: column;
@@ -17,8 +20,15 @@
   align-items:center;
   justify-content: space-between;
 }
+h5{
+  margin-top: 10px;
+}
 input{
   width: 70vw;
+}
+.filtrar{
+  display: flex;
+  flex-direction: row;
 }
 .imagensRestaurantes{
   margin: 20px;
