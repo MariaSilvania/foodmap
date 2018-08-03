@@ -1,14 +1,22 @@
+
 function initMap() {
-  var uluru = {
-    lat: -23.557567, lng: -46.658615
-  };
-  var map = new google.maps.Map(
-      document.getElementById('map'), {
-        zoom: 4, center: uluru
-      });
-  var marker = new google.maps.Marker({
-    position: uluru, map: map
-  });
+
+for (i = 0; i < restaurantes.length; i++) {
+  var latitude = restaurantes[i].latitude;
+  var longitude = restaurantes[i].longitude;
+
+
+    var uluru = {
+      lat: latitude , lng: longitude
+    };
+    var map = new google.maps.Map(
+        document.getElementById('map'), {
+          zoom: 15, center: uluru
+        });
+    var marker = new google.maps.Marker({
+      position: uluru, map: map
+    });
+  }
 }
 
 $('.home').hide();
@@ -25,7 +33,7 @@ $(document).ready(function() {
 
   $.each(restaurantes, function(index, value) {
     listaIndex.push(index);
-    names.push(value.name);
+    names.push(value.name.toUpperCase());
     images.push(value.image);
     types.push(value.type);
     descriptions.push(value.description);
@@ -34,7 +42,7 @@ $(document).ready(function() {
   $('.btnFiltrar').click(function () {
    var inputValue = $('.textoFiltrar').val();
    $.each(names, function(index, value) {
-     if(value === inputValue) {
+     if(value === inputValue.toUpperCase()) {
        $("#h1Modal").append(names[index]);
        $('#imgModal').attr('src', images[index]);
        $('#imgModal').attr('alt', names[index]);
@@ -51,12 +59,4 @@ $(document).ready(function() {
      $('#descriptionModal').html("");
     });
   })
-//
-//  $('.termo').on('input', function () {
-//    if($(this).val() === "") {
-//      $( "li" ).each(function( ) {
-//        $(this).fadeIn('slow')
-//      });
-//    }
-//  })
 });
