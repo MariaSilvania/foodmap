@@ -24,24 +24,41 @@ $(document).ready(function() {
   var descriptions = [];
   $.each(restaurantes, function(index, value) {
     listaIndex.push(index);
-    names.push(value.name.toUpperCase());
+    names.push(value.name);
     images.push(value.image);
-    types.push(value.type);
+    types.push(value.type.toUpperCase());
     descriptions.push(value.description);
-    $(".imagensRestaurantes").append("<img src= " + value.image + " alt=" + value.name + " >");
+    $(".imagensRestaurantes").append("<img src= " + value.image + " alt=" + value.type.toUpperCase() + " val=" + index + " data-toggle='modal' data-target='#modalRestautante'>");
   });
   $('.btnFiltrar').click(function () {
-   var inputValue = $('.textoFiltrar').val();
-   $.each(names, function(index, value) {
-     if(value === inputValue.toUpperCase()) {
-       $("#h1Modal").append(names[index]);
-       $('#imgModal').attr('src', images[index]);
-       $('#imgModal').attr('alt', names[index]);
-       $('#imgModal').show();
-       $("#typeModal").append("<b>Tipo: </b>" + types[index]);
-       $('#descriptionModal').append("<b>Descrição: </b>" + descriptions[index]);
-     }
-  });
+     var inputValue = $('.textoFiltrar').val().toUpperCase();
+     $("img").each(function( ) {
+         if($(this).attr("alt") !== inputValue) {
+           $(this).fadeOut('slow');
+         }
+       });
+     })
+     $('.textoFiltrar').on('input', function () {
+       if($(this).val() === "") {
+         $( "img" ).each(function( ) {
+           $(this).fadeIn('slow')
+         });
+       }
+     })
+     $('img').click(function () {
+       var index = $(this).attr("val");
+       console.log(index);
+       // $.each(names, function(index, value) {
+       //   if(value === imgValue) {
+           $("#h1Modal").append(names[index]);
+           $('#imgModal').attr('src', images[index]);
+           $('#imgModal').attr('alt', names[index]);
+           $('#imgModal').show();
+           $("#typeModal").append("<b>Tipo: </b>" + types[index]);
+           $('#descriptionModal').append("<b>Descrição: </b>" + descriptions[index]);
+       //   }
+       // })
+    });
    $('.close').click(function () {
      $('.textoFiltrar').val("");
      $('#h1Modal').html("");
@@ -49,5 +66,5 @@ $(document).ready(function() {
      $('#typeModal').html("");
      $('#descriptionModal').html("");
     });
-  })
+
 });
