@@ -28,6 +28,7 @@ h5{
 }
 input{
   width: 70vw;
+  height: auto;
 }
 .filtrar{
   display: flex;
