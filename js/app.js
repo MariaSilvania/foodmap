@@ -1,24 +1,16 @@
-
 function initMap() {
-
-for (i = 0; i < restaurantes.length; i++) {
-  var latitude = restaurantes[i].latitude;
-  var longitude = restaurantes[i].longitude;
-
-
-    var uluru = {
-      lat: latitude , lng: longitude
-    };
-    var map = new google.maps.Map(
-        document.getElementById('map'), {
-          zoom: 15, center: uluru
-        });
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 14, center: {lat: -23.561751 , lng: -46.658998},
+  });
+  for (i = 0; i < restaurantes.length; i++) {
+    var latitude = restaurantes[i].latitude;
+    var longitude = restaurantes[i].longitude;
     var marker = new google.maps.Marker({
-      position: uluru, map: map
+     position: new google.maps.LatLng(latitude , longitude),
+     map: map,
     });
   }
 }
-
 $('.home').hide();
 $(document).ready(function() {
   setTimeout(function () {
@@ -30,7 +22,6 @@ $(document).ready(function() {
   var images = [];
   var types = [];
   var descriptions = [];
-
   $.each(restaurantes, function(index, value) {
     listaIndex.push(index);
     names.push(value.name.toUpperCase());
