@@ -1,23 +1,3 @@
-function initMap() {
-  var latitude;
-  var longitude;
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 14,
-    center: {
-      lat: -23.561751,
-      lng: -46.658998
-    },
-  });
-  for (i = 0; i < restaurantes.length; i++) {
-    latitude = restaurantes[i].latitude;
-    longitude = restaurantes[i].longitude;
-    var marker = new google.maps.Marker({
-      position: new google.maps.LatLng(latitude, longitude),
-      map: map,
-    });
-  }
-}
-
 $('.home').hide();
 $(document).ready(function() {
   setTimeout(function() {
@@ -84,3 +64,22 @@ $(document).ready(function() {
   }
   autoCompleteType();
 });
+function initMap() {
+  var latitude;
+  var longitude;
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 14,
+    center: {
+      lat: -23.561751,
+      lng: -46.658998
+    },
+  });
+  for (i = 0; i < restaurantes.length; i++) {
+    latitude = restaurantes[i].latitude;
+    longitude = restaurantes[i].longitude;
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(latitude, longitude),
+      map: map,
+    });
+  }
+}
