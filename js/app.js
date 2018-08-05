@@ -1,3 +1,19 @@
+function myMapa() {
+  var map = L.map('map').setView([-23.557567, -46.658615], 15);
+		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+		}).addTo(map);
+    var latitude;
+    var longitude;
+    for (i = 0; i < restaurantes.length; i++) {
+        latitude = restaurantes[i].latitude;
+        longitude = restaurantes[i].longitude;
+		L.marker([latitude, longitude]).addTo(map)
+			.bindPopup(restaurantes[i].name)
+			.openPopup();
+  }
+}
+myMapa();
 $('.home').hide();
 $(document).ready(function() {
   setTimeout(function() {
@@ -25,14 +41,14 @@ $(document).ready(function() {
         $(this).fadeOut('slow');
       }
     });
-  })
+  });
   $('.textoFiltrar').on('input', function() {
     if ($(this).val() === "") {
       $("img").each(function() {
         $(this).fadeIn('slow')
       });
     }
-  })
+  });
   $('img').click(function() {
     var index = $(this).attr("val");
     $("#h1Modal").append(names[index]);
@@ -48,38 +64,18 @@ $(document).ready(function() {
     $('#typeModal').html("");
     $('#descriptionModal').html("");
   });
-
   function autoCompleteType() {
     var autoCompleteType = [];
     for (var i = 0; i < types.length; i++) {
       if (types[i] !== types[i + 1]) {
         autoCompleteType.push(types[i]);
+      }
     }
-  }
     $(function() {
       $(".textoFiltrar").autocomplete({
         source: autoCompleteType
       });
-    });
-  }
-  autoCompleteType();
-});
-function initMap() {
-  var latitude;
-  var longitude;
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 14,
-    center: {
-      lat: -23.561751,
-      lng: -46.658998
-    },
   });
-  for (i = 0; i < restaurantes.length; i++) {
-    latitude = restaurantes[i].latitude;
-    longitude = restaurantes[i].longitude;
-    var marker = new google.maps.Marker({
-      position: new google.maps.LatLng(latitude, longitude),
-      map: map,
-    });
-  }
 }
+autoCompleteType();
+});
