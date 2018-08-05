@@ -14,8 +14,9 @@ function myMapa() {
   }
 }
 myMapa();
-$('.home').hide();
+
 $(document).ready(function() {
+  $('.home').hide();
   setTimeout(function() {
     $('.logo').hide();
     $('.home').show();
