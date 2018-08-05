@@ -1,23 +1,27 @@
 function initMap() {
   var latitude;
   var longitude;
-    var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 14, center: {lat: -23.561751 , lng: -46.658998},
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 14,
+    center: {
+      lat: -23.561751,
+      lng: -46.658998
+    },
   });
   for (i = 0; i < restaurantes.length; i++) {
     latitude = restaurantes[i].latitude;
     longitude = restaurantes[i].longitude;
     var marker = new google.maps.Marker({
-     position: new google.maps.LatLng(latitude , longitude),
-     map: map,
+      position: new google.maps.LatLng(latitude, longitude),
+      map: map,
     });
   }
 }
 
 $('.home').hide();
 $(document).ready(function() {
-  setTimeout(function () {
-  	$('.logo').hide();
+  setTimeout(function() {
+    $('.logo').hide();
     $('.home').show();
   }, 5000);
   var listaIndex = [];
@@ -34,34 +38,49 @@ $(document).ready(function() {
     $(".imagensRestaurantes").append("<img src= " + value.image + " alt=" + value.type.toUpperCase() + " val=" + index + " data-toggle='modal' data-target='#modalRestautante'>");
   });
 
-  $('.btnFiltrar').click(function () {
-     var inputValue = $('.textoFiltrar').val().toUpperCase();
-     $("img").each(function( ) {
-         if($(this).attr("alt") !== inputValue) {
-           $(this).fadeOut('slow');
-         }
-       });
-     })
-     $('.textoFiltrar').on('input', function () {
-       if($(this).val() === "") {
-         $( "img" ).each(function( ) {
-           $(this).fadeIn('slow')
-         });
-       }
-     })
-     $('img').click(function () {
-       var index = $(this).attr("val");
-         $("#h1Modal").append(names[index]);
-         $('#imgModal').attr('src', images[index]);
-         $('#imgModal').attr('alt', names[index]);
-         $('#imgModal').show();
-         $("#typeModal").append("<b>Tipo: </b>" + types[index]);
-         $('#descriptionModal').append("<b>Descrição: </b>" + descriptions[index]);
+  $('.btnFiltrar').click(function() {
+    var inputValue = $('.textoFiltrar').val().toUpperCase();
+    $("img").each(function() {
+      if ($(this).attr("alt") !== inputValue) {
+        $(this).fadeOut('slow');
+      }
     });
-   $('.close').click(function () {
-     $('#h1Modal').html("");
-     $('#imgModal').hide();
-     $('#typeModal').html("");
-     $('#descriptionModal').html("");
+  })
+  $('.textoFiltrar').on('input', function() {
+    if ($(this).val() === "") {
+      $("img").each(function() {
+        $(this).fadeIn('slow')
+      });
+    }
+  })
+  $('img').click(function() {
+    var index = $(this).attr("val");
+    $("#h1Modal").append(names[index]);
+    $('#imgModal').attr('src', images[index]);
+    $('#imgModal').attr('alt', names[index]);
+    $('#imgModal').show();
+    $("#typeModal").append("<b>Tipo: </b>" + types[index]);
+    $('#descriptionModal').append("<b>Descrição: </b>" + descriptions[index]);
+  });
+  $('.close').click(function() {
+    $('#h1Modal').html("");
+    $('#imgModal').hide();
+    $('#typeModal').html("");
+    $('#descriptionModal').html("");
+  });
+
+  function autoCompleteType() {
+    var autoCompleteType = [];
+    for (var i = 0; i < types.length; i++) {
+      if (types[i] !== types[i + 1]) {
+        autoCompleteType.push(types[i]);
+    }
+  }
+    $(function() {
+      $(".textoFiltrar").autocomplete({
+        source: autoCompleteType
+      });
     });
+  }
+  autoCompleteType();
 });

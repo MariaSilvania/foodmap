@@ -21,7 +21,7 @@ const restaurantes = [
     "latitude": -23.5588598,
     "longitude": -46.66152740000001,
     "description": "A chain of casual Italian cantinas that serves an array of pastas, pizzas, snacks & ice cream.",
-    "type": "fast food"
+    "type": "fastfood"
   },
   {
     "name": "McDonald's",
@@ -29,7 +29,7 @@ const restaurantes = [
     "latitude": -23.558783,
     "longitude": -46.66130229999999,
     "description": "Classic, long-running fast-food chain known for its burgers, fries & shakes.",
-    "type": "fast food"
+    "type": "fastfood"
   },
   {
     "name": "Cantina do Piero il Vero",
