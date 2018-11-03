@@ -42,6 +42,7 @@ $(document).ready(function () {
       }
     });
   });
+
   $('.textoFiltrar').on('input', function () {
     if ($(this).val() === "") {
       $("img").each(function () {
@@ -49,6 +50,7 @@ $(document).ready(function () {
       });
     }
   });
+
   $('img').click(function () {
     var index = $(this).attr("val");
     $("#h1Modal").append(names[index]);
@@ -58,6 +60,7 @@ $(document).ready(function () {
     $("#typeModal").append("<b>Tipo: </b>" + types[index]);
     $('#descriptionModal').append("<b>Descrição: </b>" + descriptions[index]);
   });
+
   $('.close').click(function () {
     $('#h1Modal').html("");
     $('#imgModal').hide();
@@ -72,11 +75,13 @@ $(document).ready(function () {
         autoCompleteType.push(types[i]);
       }
     }
+
     $(function () {
       $(".textoFiltrar").autocomplete({
         source: autoCompleteType
       });
     });
   }
+
   autoCompleteType();
 });

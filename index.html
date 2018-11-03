@@ -1,63 +1,60 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="https://fonts.googleapis.com/css?family=Modern+Antiqua" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
-    crossorigin="" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
-    crossorigin="anonymous">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/main.css">
-  <title>Home</title>
-</head>
-
-<body>
-  <main class="main">
-    <section class="logo">
-      <h1>FOODMAP</h1>
-    </section>
-    <article class="home">
-      <h1>FOODMAP</h1>
-      <div id="map"></div>
-      <h5>Restaurantes em sua região</h5>
-      <div class="filtrar">
-        <input class="textoFiltrar" type="text" name="" value="" placeholder="ex. Arabe" autofocus>
-        <button class="btnFiltrar" type="button" name="button">
-          <i class="fas fa-search"></i>
-        </button>
-      </div>
-      <section class="imagensRestaurantes">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Modern+Antiqua" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+      crossorigin="" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+    <title>FoodMap</title>
+  </head>
+  <body>
+    <main class="main">
+      <section class="logo">
+        <h1>FOODMAP</h1>
       </section>
-    </article>
-  </main>
-  <div class="modal fade" id="modalRestautante">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 id="h1Modal"></h1>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <article class="home">
+        <h1>FOODMAP</h1>
+        <div id="map"></div>
+        <h5>Restaurantes em sua região</h5>
+        <div class="filtrar">
+          <input class="textoFiltrar" type="text" name="" value="" placeholder="ex. Arabe" autofocus>
+          <button class="btnFiltrar" type="button" name="button">
+            <i class="fas fa-search"></i>
+          </button>
         </div>
-        <div class="modal-body bodyModal">
-          <img id="imgModal" src="" alt="">
-          <h5 id="typeModal"></h5>
-          <p id="descriptionModal"></p>
+        <section class="imagensRestaurantes">
+        </section>
+      </article>
+    </main>
+    <div class="modal fade" id="modalRestautante">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 id="h1Modal"></h1>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body bodyModal">
+            <img id="imgModal" src="" alt="">
+            <h5 id="typeModal"></h5>
+            <p id="descriptionModal"></p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
-    crossorigin=""></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-  <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
-  <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-  <script src="js/data.js"></script>
-  <script src="js/app.js"></script>
-</body>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+      crossorigin=""></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+  </body>
 </html>
