@@ -1,6 +1,9 @@
+$primary-color: #cb792b;
+$fundo-color: #000;
+
 body {
-  background-color: #000;
-  font-family: "Modern Antiqua", cursive;
+  background-color: $fundo-color;
+  font-family: 'Modern Antiqua', cursive;
 }
 
 .logo {
@@ -8,12 +11,12 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #cb792b;
+  color: $primary-color;
   height: 100vh;
 }
 
 .home {
-  color: #cb792b;
+  color: $primary-color;
   height: 100vh;
   padding-top: 7px;
   display: flex;
@@ -70,21 +73,23 @@ input {
 }
 
 #h1Modal {
-  color: #cb792b;
+  color: $primary-color;
   font-size: 24px;
 }
 
 @media screen and (min-width: 576px) {
-  .logo h1 {
-    font-size: 100px;
+  .logo {
+    h1 {
+      font-size: 100px;
+    }
   }
+
 
   .imagensRestaurantes img {
     width: 30vw;
     height: 15vh;
     border: #fff solid 3px;
     object-fit: cover;
+
   }
 }
-
-/*# sourceMappingURL=main.css.map */
